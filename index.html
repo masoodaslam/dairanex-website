@@ -1,245 +1,912 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DairaNex — AI Front Desk for Pet-Care Businesses</title>
+```
+<title>DairaNex — AI Front Desk for Pet-Care Businesses</title>
 
-    <meta
-        name="description"
-        content="DairaNex helps pet-care businesses answer customer questions and handle booking requests with an AI-powered front desk."
-    >
+<meta
+    name="description"
+    content="DairaNex helps pet-care businesses handle customer questions, booking requests, and phone calls with AI-powered front desk solutions."
+>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<meta name="theme-color" content="#0f172a">
 
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #ffffff;
-            color: #222222;
-        }
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+    html {
+        scroll-behavior: smooth;
+    }
 
-        header {
-            padding: 28px 0;
-            border-bottom: 1px solid #eeeeee;
-        }
+    body {
+        margin: 0;
+        font-family:
+            Inter,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif;
+        background: #ffffff;
+        color: #0f172a;
+        line-height: 1.6;
+    }
 
-        .logo {
-            font-size: 26px;
-            font-weight: 700;
-            color: #222222;
-            text-decoration: none;
-        }
+    a {
+        color: inherit;
+    }
 
+    .container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    /* Header */
+
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav {
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        font-size: 15px;
+        color: #475569;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+    }
+
+    .nav-links a:hover {
+        color: #0f172a;
+    }
+
+    .nav-button {
+        padding: 9px 16px;
+        border-radius: 7px;
+        background: #0f172a;
+        color: #ffffff !important;
+    }
+
+    /* Hero */
+
+    .hero {
+        padding: 105px 20px 100px;
+        text-align: center;
+        background:
+            radial-gradient(circle at top, #f1f5f9 0%, #ffffff 55%);
+    }
+
+    .eyebrow {
+        display: inline-block;
+        margin-bottom: 22px;
+        padding: 7px 13px;
+        border: 1px solid #dbeafe;
+        border-radius: 999px;
+        background: #eff6ff;
+        color: #2563eb;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .hero h1 {
+        max-width: 850px;
+        margin: 0 auto 25px;
+        font-size: 58px;
+        line-height: 1.08;
+        letter-spacing: -2.2px;
+    }
+
+    .hero h1 span {
+        color: #2563eb;
+    }
+
+    .hero p {
+        max-width: 720px;
+        margin: 0 auto 35px;
+        color: #64748b;
+        font-size: 20px;
+        line-height: 1.7;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 13px 22px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        transition: 0.2s ease;
+    }
+
+    .button-primary {
+        background: #0f172a;
+        color: #ffffff;
+    }
+
+    .button-primary:hover {
+        background: #1e293b;
+        transform: translateY(-1px);
+    }
+
+    .button-secondary {
+        border: 1px solid #cbd5e1;
+        background: #ffffff;
+        color: #0f172a;
+    }
+
+    .button-secondary:hover {
+        background: #f8fafc;
+    }
+
+    /* Trust */
+
+    .trust {
+        padding: 22px 0;
+        border-top: 1px solid #e5e7eb;
+        border-bottom: 1px solid #e5e7eb;
+        text-align: center;
+        color: #64748b;
+        font-size: 14px;
+    }
+
+    /* Sections */
+
+    .section {
+        padding: 90px 0;
+    }
+
+    .section-light {
+        background: #f8fafc;
+    }
+
+    .section-header {
+        max-width: 700px;
+        margin: 0 auto 50px;
+        text-align: center;
+    }
+
+    .section-header h2 {
+        margin: 0 0 15px;
+        font-size: 36px;
+        letter-spacing: -1px;
+    }
+
+    .section-header p {
+        margin: 0;
+        color: #64748b;
+        font-size: 18px;
+    }
+
+    /* Product cards */
+
+    .products {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .product-card {
+        padding: 34px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+    }
+
+    .product-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 22px;
+        border-radius: 10px;
+        background: #eff6ff;
+        color: #2563eb;
+        font-size: 22px;
+    }
+
+    .product-card h3 {
+        margin: 0 0 12px;
+        font-size: 22px;
+    }
+
+    .product-card p {
+        margin: 0;
+        color: #64748b;
+    }
+
+    .status {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: #f1f5f9;
+        color: #475569;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    /* Features */
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .feature {
+        padding: 28px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+    }
+
+    .feature-number {
+        margin-bottom: 18px;
+        color: #2563eb;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .feature h3 {
+        margin: 0 0 10px;
+        font-size: 19px;
+    }
+
+    .feature p {
+        margin: 0;
+        color: #64748b;
+        font-size: 15px;
+    }
+
+    /* How it works */
+
+    .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .step {
+        text-align: center;
+    }
+
+    .step-number {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 18px;
+        border-radius: 50%;
+        background: #0f172a;
+        color: #ffffff;
+        font-weight: 700;
+    }
+
+    .step h3 {
+        margin: 0 0 10px;
+        font-size: 19px;
+    }
+
+    .step p {
+        margin: 0;
+        color: #64748b;
+        font-size: 15px;
+    }
+
+    /* Founding partners */
+
+    .founding {
+        padding: 90px 20px;
+        background: #0f172a;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .founding h2 {
+        max-width: 700px;
+        margin: 0 auto 18px;
+        font-size: 38px;
+        letter-spacing: -1px;
+    }
+
+    .founding p {
+        max-width: 650px;
+        margin: 0 auto 30px;
+        color: #cbd5e1;
+        font-size: 17px;
+    }
+
+    .founding .button-primary {
+        background: #ffffff;
+        color: #0f172a;
+    }
+
+    .founding .button-primary:hover {
+        background: #f1f5f9;
+    }
+
+    /* Footer */
+
+    footer {
+        padding: 40px 0;
+        background: #ffffff;
+        border-top: 1px solid #e5e7eb;
+        color: #64748b;
+        font-size: 14px;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .footer-brand strong {
+        color: #0f172a;
+        font-size: 17px;
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .footer-links a {
+        text-decoration: none;
+    }
+
+    .footer-links a:hover {
+        color: #0f172a;
+    }
+
+    .copyright {
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid #e5e7eb;
+        font-size: 13px;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 800px) {
         .hero {
-            text-align: center;
-            padding: 100px 20px 90px;
+            padding: 75px 20px 70px;
         }
 
         .hero h1 {
-            max-width: 750px;
-            margin: 0 auto 24px;
-            font-size: 52px;
-            line-height: 1.1;
+            font-size: 43px;
+        }
+
+        .products,
+        .features,
+        .steps {
+            grid-template-columns: 1fr;
+        }
+
+        .nav-links a:not(.nav-button) {
+            display: none;
+        }
+
+        .footer-content {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .hero h1 {
+            font-size: 36px;
+            letter-spacing: -1.2px;
         }
 
         .hero p {
-            max-width: 650px;
-            margin: 0 auto 35px;
-            font-size: 20px;
-            line-height: 1.6;
-            color: #666666;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 14px 25px;
-            background: #222222;
-            color: white;
-            text-decoration: none;
-            border-radius: 7px;
-            font-size: 16px;
+            font-size: 18px;
         }
 
         .section {
-            padding: 70px 0;
-            border-top: 1px solid #eeeeee;
+            padding: 65px 0;
         }
 
-        .section h2 {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 45px;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .feature {
-            padding: 25px;
-            border: 1px solid #eeeeee;
-            border-radius: 10px;
-        }
-
-        .feature h3 {
-            margin-top: 0;
-            font-size: 20px;
-        }
-
-        .feature p {
-            color: #666666;
-            line-height: 1.6;
-        }
-
-        .founding {
-            text-align: center;
-            padding: 70px 20px;
-            background: #f7f7f7;
-        }
-
+        .section-header h2,
         .founding h2 {
-            font-size: 32px;
-            margin-top: 0;
+            font-size: 30px;
         }
 
-        .founding p {
-            max-width: 650px;
-            margin: 0 auto 25px;
-            color: #666666;
-            line-height: 1.6;
+        .product-card {
+            padding: 27px;
         }
+    }
+</style>
+```
 
-        footer {
-            padding: 35px 0;
-            border-top: 1px solid #eeeeee;
-            color: #777777;
-            font-size: 14px;
-        }
-
-        @media (max-width: 700px) {
-            .hero {
-                padding: 70px 15px;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
 <header>
-    <div class="container">
-        <a href="/" class="logo">DairaNex</a>
-    </div>
+    <div class="container nav">
+
+```
+    <a href="/" class="logo">DairaNex</a>
+
+    <nav class="nav-links">
+        <a href="#solutions">Solutions</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#contact" class="nav-button">Get in touch</a>
+    </nav>
+
+</div>
+```
+
 </header>
 
 <main>
 
-    <section class="hero">
-        <h1>AI front desk for pet-care businesses</h1>
+```
+<!-- HERO -->
 
-        <p>
-            DairaNex helps pet-care businesses answer customer questions,
-            handle booking requests, and provide information through an
-            AI-powered front desk.
-        </p>
+<section class="hero">
 
-        <a class="button" href="mailto:mike@dairanex.com">
-            Get in touch
+    <div class="eyebrow">
+        AI-powered front desk for pet-care businesses
+    </div>
+
+    <h1>
+        Let AI handle the front desk,
+        <span>so you can focus on the pets.</span>
+    </h1>
+
+    <p>
+        DairaNex helps pet-care businesses answer customer questions,
+        handle booking requests, and provide support through AI-powered
+        website and voice agents.
+    </p>
+
+    <div class="buttons">
+
+        <a
+            class="button button-primary"
+            href="mailto:mike@dairanex.com"
+        >
+            Talk to us
         </a>
-    </section>
+
+        <a
+            class="button button-secondary"
+            href="#solutions"
+        >
+            Explore DairaNex
+        </a>
+
+    </div>
+
+</section>
 
 
-    <section class="section">
-        <div class="container">
+<div class="trust">
+    Built for independent pet-care businesses
+</div>
 
-            <h2>What DairaNex can help with</h2>
 
-            <div class="features">
+<!-- SOLUTIONS -->
 
-                <div class="feature">
-                    <h3>Answer customer questions</h3>
-                    <p>
-                        Provide information about services, pricing,
-                        hours, requirements, and policies.
-                    </p>
+<section class="section section-light" id="solutions">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2>
+                One AI front desk. Multiple ways to help customers.
+            </h2>
+
+            <p>
+                DairaNex is being built to help pet-care businesses
+                manage routine customer conversations across their
+                website and phone.
+            </p>
+
+        </div>
+
+
+        <div class="products">
+
+            <div class="product-card">
+
+                <div class="product-icon">
+                    💬
                 </div>
 
-                <div class="feature">
-                    <h3>Handle booking requests</h3>
-                    <p>
-                        Collect customer and pet information and
-                        guide customers through booking requests.
-                    </p>
+                <h3>
+                    AI Website Front Desk
+                </h3>
+
+                <p>
+                    Answer questions about services, pricing, hours,
+                    requirements, policies, availability, and booking
+                    requests directly through your website.
+                </p>
+
+                <span class="status">
+                    Available for early pilots
+                </span>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-icon">
+                    ☎
                 </div>
 
-                <div class="feature">
-                    <h3>Available around the clock</h3>
-                    <p>
-                        Give customers a way to get answers even when
-                        your team is busy taking care of pets.
-                    </p>
-                </div>
+                <h3>
+                    AI Voice Agent
+                </h3>
+
+                <p>
+                    We are also developing a voice-based AI front desk
+                    that can speak with customers over the phone,
+                    answer routine questions, and help handle booking
+                    conversations.
+                </p>
+
+                <span class="status">
+                    Currently in development
+                </span>
 
             </div>
 
         </div>
-    </section>
+
+    </div>
+
+</section>
 
 
-    <section class="founding">
+<!-- FEATURES -->
 
-        <h2>We're looking for founding partners</h2>
+<section class="section">
 
-        <p>
-            We're currently working with a small number of pet-care
-            businesses to refine DairaNex around the needs of real
-            businesses.
-        </p>
+    <div class="container">
 
-        <p>
-            Early businesses can try DairaNex through a free
-            1-month pilot.
-        </p>
+        <div class="section-header">
 
-        <a class="button" href="mailto:mike@dairanex.com">
+            <h2>
+                Built around everyday customer conversations
+            </h2>
+
+            <p>
+                DairaNex is designed to handle the repetitive questions
+                and requests that take time away from your team.
+            </p>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    01
+                </div>
+
+                <h3>
+                    Answer common questions
+                </h3>
+
+                <p>
+                    Provide customers with information about services,
+                    pricing, hours, requirements, policies, and other
+                    business information.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    02
+                </div>
+
+                <h3>
+                    Handle booking requests
+                </h3>
+
+                <p>
+                    Collect customer and pet information and guide
+                    customers through availability and booking
+                    conversations.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    03
+                </div>
+
+                <h3>
+                    Stay available
+                </h3>
+
+                <p>
+                    Give customers a way to get answers even when your
+                    team is busy caring for pets or outside normal
+                    business hours.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    04
+                </div>
+
+                <h3>
+                    Understand natural conversations
+                </h3>
+
+                <p>
+                    Customers can communicate naturally instead of
+                    navigating complicated forms or rigid menus.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    05
+                </div>
+
+                <h3>
+                    Use your business information
+                </h3>
+
+                <p>
+                    DairaNex is designed around each business's own
+                    services, pricing, hours, policies, and booking
+                    rules.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    06
+                </div>
+
+                <h3>
+                    Website and voice
+                </h3>
+
+                <p>
+                    Our goal is to provide a consistent AI front desk
+                    experience whether a customer starts with a website
+                    chat or a phone call.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section class="section section-light" id="how-it-works">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2>
+                How DairaNex works
+            </h2>
+
+            <p>
+                Simple for customers. Practical for business owners.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">
+                    1
+                </div>
+
+                <h3>
+                    Customer asks
+                </h3>
+
+                <p>
+                    A customer asks a question or starts a booking
+                    conversation through the website or, eventually,
+                    by phone.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <h3>
+                    DairaNex responds
+                </h3>
+
+                <p>
+                    The AI uses the business's information and rules
+                    to provide a relevant response and guide the
+                    conversation.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <h3>
+                    Business stays in control
+                </h3>
+
+                <p>
+                    Structured booking information and business rules
+                    remain under the control of the business system.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOUNDING PARTNERS -->
+
+<section class="founding" id="contact">
+
+    <h2>
+        We're looking for founding partners
+    </h2>
+
+    <p>
+        DairaNex is currently working with a small number of
+        pet-care businesses to refine the product around the needs
+        of real businesses.
+    </p>
+
+    <p>
+        Early businesses can try DairaNex through a
+        <strong>free 1-month pilot</strong>.
+    </p>
+
+    <div class="buttons">
+
+        <a
+            class="button button-primary"
+            href="mailto:mike@dairanex.com?subject=DairaNex%20Founding%20Partner%20Inquiry"
+        >
             Contact DairaNex
         </a>
 
-    </section>
+    </div>
+
+</section>
+```
 
 </main>
 
+<!-- FOOTER -->
 
 <footer>
-    <div class="container">
+
+```
+<div class="container">
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+
+            <strong>DairaNex</strong>
+
+            <p>
+                AI front desk solutions for pet-care businesses.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="mailto:mike@dairanex.com">
+                Email
+            </a>
+
+            <a href="#solutions">
+                Solutions
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
 
         <strong>DairaNex</strong><br>
-
         312 W 2nd St PMB 5365<br>
         Casper, WY 82601<br>
         USA
@@ -249,6 +916,10 @@
         © 2026 DairaNex. All rights reserved.
 
     </div>
+
+</div>
+```
+
 </footer>
 
 </body>
